@@ -61,13 +61,16 @@ window.addEventListener('DOMContentLoaded', function()  {
 function displayMenuItems(menuItems){
     let displayMenu = menuItems.map(function(item){
         return `<article class="menu-item">
-        <img src=${item.img} class="photo" alt="${item.nombre}">
+        <img src=${item.img} class="photo img-fluid"" alt="${item.nombre}">
         <div class="item-info">
             <header>
-                <h4>${item.nombre}</h4>
+                <h3>${item.nombre}</h3>
                 <h4>$ ${item.precio}</h4>
             </header>
-            <p class="item-text">${item.descripcion}</p>
+            <div class="item-description">
+                <p class="item-text">${item.descripcion}</p>
+                <button class="cart-button"><i class="material-icons">add_circle_outline</i></button>
+            </div>
         </div>
     </article>`;
     });
