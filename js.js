@@ -1,5 +1,7 @@
-//CREAR ARRAY VACIO PARA LISTA DE PLATOS
+// CONTENIDO AGREGADO CON JQUERY
+$('h1').text('Restaurant Menu');
 
+//CREAR ARRAY VACIO PARA LISTA DE PLATOS
 let listaPlatos = [];
 
 
@@ -39,25 +41,31 @@ const plato18 = new Plato (18, 'Cremas heladas', 'postre', 400, './images/item-1
 // AGREGAR PLATOS AL ARRAY LISTA DE PLATOS
 listaPlatos.push(plato1, plato2, plato3, plato4, plato5,plato6, plato7, plato8, plato9, plato10, plato11, plato12, plato13, plato14, plato15, plato16, plato17, plato18);
 
-//console.log(listaPlatos)
-
-//CREAR CONTENIDO PARA LA WEB
-
-const sectionCenter = document.querySelector(".section-center");
+/*CREAR CONTENIDO PARA LA WEB CON JS VANILLA
+const sectionCenter = btnContainer(".section-center");
 const btnContainer = document.querySelector(".btn-container");
+*/
 
+//CREAR CONTENIDO PARA LA WEB CON JQUERY
+const sectionCenter = $(".section-center");
+const btnContainer = $(".btn-container");
 
-
-// CARGA DE CONTENIDO 
+/*
+CARGA DE CONTENIDO CON JS VANILLA
 window.addEventListener('DOMContentLoaded', function()  {
     displayMenuItems(listaPlatos);
     displayMenuBtns();
 });
+*/
+
+// CARGA DE CONTENIDO CON JQUERY
+$(document).ready(function()  {
+    displayMenuItems(listaPlatos);
+    displayMenuBtns();
+});
+
 
 // CARGA DE FILTROS
-
-
-
 function displayMenuItems(menuItems){
     let displayMenu = menuItems.map(function(item){
         return `<article class="menu-item">
@@ -75,7 +83,8 @@ function displayMenuItems(menuItems){
     </article>`;
     });
     displayMenu = displayMenu.join("");
-    sectionCenter.innerHTML = displayMenu;
+    // sectionCenter.innerHTML = displayMenu;   /*JS VANILLA*/
+    sectionCenter.html(displayMenu);            /*JQUERY*/
 }
 
 function displayMenuBtns() {
@@ -89,7 +98,13 @@ function displayMenuBtns() {
     const categoriesBtns = categories.map(function(category){
         return `<button class="filter-btn" type="button" data-id="${category}">${category}</button>` 
     }).join("");
-btnContainer.innerHTML = categoriesBtns;
+
+/*
+btnContainer.innerHTML = categoriesBtns; VANILLA JS
+const filterBtns = document.querySelectorAll(".filter-btn");
+*/
+
+btnContainer.html(categoriesBtns);          /*JQUERY*/
 const filterBtns = document.querySelectorAll(".filter-btn");
 filterBtns.forEach(function(btn){
     btn.addEventListener('click',function(e){

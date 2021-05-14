@@ -17,12 +17,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Restaurant Menu</title>
+    
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  
   </head>
   <body class="container-xxl">
     <section class="menu container">
         <!-- Titulo principal -->
         <div class="title">
-            <h1 class="text-center">Restaurant Menu</h1>
+            <h1 class="text-center">Titulo sin Jquery</h1>
             <div class="underline"></div>
         </div>      
     <!-- Filtro de platos -->
@@ -54,7 +58,10 @@
     <div class="space"></div>
 
     <footer>
-        <h2>Tu pedido</h2><i class="material-icons">shopping_cart</i>
+        <button id="cart-info">
+          <h2>Tu pedido</h2><i class="material-icons">shopping_cart</i>
+        </button>                  
+        <div id="cart" class="cart"></div>
     </footer>
 
 
